@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <View
+        android:id="@+id/container_header"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@drawable/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Indicador IMC"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toEndOf="@id/icon_logo"
+        app:layout_constraintEnd_toStartOf="@id/ic_redefine"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/icon_logo"
+        android:layout_width="70dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_logo_weight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/container_header" />
+
+    <ImageView
+        android:id="@+id/ic_redefine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_refresh"
+        app:layout_constraintEnd_toEndOf="@id/container_header"
+        app:layout_constraintTop_toTopOf="@id/container_header" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_height"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:padding="8dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_header"
+        app:startIconTint="#FF5722"
+        app:startIconDrawable="@drawable/ic_height">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_height_edt"
+            android:inputType="numberDecimal"
+            style="@style/Theme.IMCProject.FormatEditText"
+            android:hint="Digite sua altura em (cm)" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_weight"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:padding="8dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="@id/input_height"
+        app:layout_constraintStart_toStartOf="@id/input_height"
+        app:layout_constraintTop_toBottomOf="@id/input_height"
+        app:startIconTint="#FF5722"
+        app:startIconDrawable="@drawable/ic_balance_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_weight_edit"
+            android:inputType="numberDecimal"
+            style="@style/Theme.IMCProject.FormatEditText"
+            android:hint="Digite seu peso em (kg)" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_calc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/background_degrade_button"
+        android:padding="15dp"
+        android:text="Calcular"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_weight" />
+
+    <View
+        android:id="@+id/container_resultado_imc"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/container_resultado_imc"
+        app:layout_constraintTop_toBottomOf="@id/btn_calc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_scale_logo"
+        app:layout_constraintTop_toTopOf="@id/container_resultado_imc"
+        app:layout_constraintBottom_toBottomOf="@id/container_resultado_imc"
+        app:layout_constraintStart_toStartOf="@id/container_resultado_imc"
+        app:layout_constraintEnd_toEndOf="@id/container_resultado_imc"/>
+
+    <TextView
+        android:id="@+id/txt_calc_imc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Valor"
+        android:gravity="center"
+        android:textSize="35sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:textColor="#FF5722"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/container_resultado_imc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <TextView
+        android:id="@+id/txt_result_imc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Situação"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="#FF5722"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_calc_imc"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_description"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:text="Descrição"
+        android:gravity="center"
+        tools:visibility="gone"
+        android:textColor="#FF5722"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btn_calc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ic_learn_more"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ic_learn_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_return"
+        android:layout_marginStart="64dp"
+            android:visibility="invisible"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_learn_more"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Saber mais"
+        android:textColor="#FF5722"
+        android:textSize="16sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="64dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_learn_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ic_learn_more"
+        app:layout_constraintTop_toTopOf="@+id/ic_learn_more" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
