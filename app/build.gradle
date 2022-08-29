@@ -35,7 +35,6 @@ android {
 }
 ext {
     lifecycleVersion = '2.5.1'
-    //koin_version= "2.1.6"
 }
 
 dependencies {
@@ -54,11 +53,13 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     // Current stable version
 
-/*// Koin for Android
-    implementation "org.koin:koin-android:$koin_version"
-// Koin Android Scope feature
-    implementation "org.koin:koin-android-scope:$koin_version"
-// Koin Android ViewModel feature
-    implementation "org.koin:koin-android-viewmodel:$koin_version"*/
+    implementation "io.insert-koin:koin-android:3.2.0"
+    implementation "io.insert-koin:koin-androidx-navigation:3.2.0"
+    implementation "io.insert-koin:koin-androidx-compose:3.2.0"
+    testImplementation "io.insert-koin:koin-test-junit4:3.2.0"
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'
 
 }

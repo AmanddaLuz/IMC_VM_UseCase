@@ -7,26 +7,26 @@ import androidx.appcompat.app.AppCompatActivity
 import com.amandaluz.imccalculator.R
 import com.amandaluz.imccalculator.core.Status
 import com.amandaluz.imccalculator.databinding.ActivityMainBinding
-import com.amandaluz.imccalculator.usecase.calcusecase.ImcCalcUseCase
-import com.amandaluz.imccalculator.usecase.calcusecase.ImcCalcUseCaseImpl
-import com.amandaluz.imccalculator.usecase.resultusecase.ImcResultUseCase
+import com.amandaluz.imccalculator.di.IMCModuleComponent
 import com.amandaluz.imccalculator.usecase.resultusecase.ImcResultUseCaseImpl
 import com.amandaluz.imccalculator.view.viewmodel.ImcViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: ImcViewModel
-    private lateinit var calcUseCase: ImcCalcUseCase
-    private lateinit var resultUseCase: ImcResultUseCase
+    private val viewModel by viewModel<ImcViewModel>()
+//    private lateinit var calcUseCase: ImcCalcUseCase
+//    private lateinit var resultUseCase: ImcResultUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        calcUseCase = ImcCalcUseCaseImpl()
-        resultUseCase = ImcResultUseCaseImpl()
-        viewModel = ImcViewModel(calcUseCase, resultUseCase)
+//        calcUseCase = ImcCalcUseCaseImpl()
+//        resultUseCase = ImcResultUseCaseImpl()
+//        viewModel = ImcViewModel(calcUseCase, resultUseCase)
+        IMCModuleComponent.inject()
         observeVMEvents()
         setLayout()
     }
